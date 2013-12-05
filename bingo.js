@@ -1,3 +1,5 @@
+/*global require: true, global module: true, console:true*/
+'use strict';
 var io = require("socket.io-client"),
 	bingo = require("./bingoHelper");
 
@@ -5,6 +7,7 @@ var client = io.connect('ws://yahoobingo.herokuapp.com');
 var card;
 
 function emitBingo(numTimes) {
+	var i;
 	for (i=0; i < numTimes; i++) {
 		client.emit('bingo');
 	}

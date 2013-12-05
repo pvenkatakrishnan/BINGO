@@ -9,7 +9,7 @@ module.exports = {
 		num = num.slice(1);
 		for(var i=0; i< 5; i++) {
 			if (entries[i] == num){
-				entries[i] = -1;
+				entries[i] = '#';
 				changed = true;
 			}
 		}
@@ -23,7 +23,7 @@ module.exports = {
 		function check(key) {
 			var isBingo = true;
 			for (i=0;i < 5; i++) {
-				if(card[key][i] !== -1) {
+				if(card[key][i] !== '#') {
 					isBingo = false;
 					break;
 				}
@@ -47,7 +47,7 @@ module.exports = {
 				i;
 			for (i=0;i < 5; i++) {
 
-				if(card[keys[i]][idx] !== -1) {
+				if(card[keys[i]][idx] !== '#') {
 					isBingo = false;
 					break;
 				}
@@ -64,19 +64,19 @@ module.exports = {
 
 	checkDiagonal:function(card) {
 		var numBingo = 0;
-		if(card['B'][0] === -1 &&
-			card['I'][1] === -1 &&
-			card['N'][2] === -1 &&
-			card['G'][3] === -1 &&
-			card['O'][4] === -1) {
+		if(card['B'][0] === '#' &&
+			card['I'][1] === '#' &&
+			card['N'][2] === '#' &&
+			card['G'][3] === '#' &&
+			card['O'][4] === '#') {
 			++numBingo;
 		}
 
-		if(card['B'][4] === -1 &&
-			card['I'][3] === -1 &&
-			card['N'][2] === -1 &&
-			card['G'][1] === -1 &&
-			card['O'][0] === -1) {
+		if(card['B'][4] === '#' &&
+			card['I'][3] === '#' &&
+			card['N'][2] === '#' &&
+			card['G'][1] === '#' &&
+			card['O'][0] === '#') {
 			++numBingo;
 		}
 		return numBingo;

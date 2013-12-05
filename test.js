@@ -1,4 +1,5 @@
-
+/*global require: true, global module: true, console:true, describe:true, it:true, before:true*/
+'use strict';
 var bingo = require("./bingoHelper"),
 	assert = require("assert");
 	
@@ -22,7 +23,7 @@ describe('Bingo tests', function () {
 	it('should mark the right field', function () {
 			var number = "O90",
 				changed = bingo.process(number, card);
-			assert.equal(changed, false);
+			assert.equal(changed, true);
 	});
 
 	it('should not mark any field', function () {
@@ -35,7 +36,7 @@ describe('Bingo tests', function () {
 		card = {
 				"B":[2,6,11,12,18],
 				"I":[20,28,30,34,35],
-				"N":[-1,-1,-1,-1,-1],
+				"N":['#','#','#','#','#'],
 				"G":[57,62,64,68,69],
 				"O":[73,74,81,84,90]
 			};
@@ -48,7 +49,7 @@ describe('Bingo tests', function () {
 		card = {
 				"B":[2,6,11,12,18],
 				"I":[20,28,30,34,35],
-				"N":[-1,-1,-1,-1,39],
+				"N":['#','#','#','#',39],
 				"G":[57,62,64,68,69],
 				"O":[73,74,81,84,90]
 			};
@@ -60,11 +61,11 @@ describe('Bingo tests', function () {
 
 	it("should check for vertical correctly", function(){
 		card = {
-			"B":[2,6,11,12,-1],
-			"I":[20,28,30,34,-1],
-			"N":[39,44,46,48,-1],
-			"G":[57,62,64,68,-1],
-			"O":[73,74,81,84,-1]
+			"B":[2,6,11,12,'#'],
+			"I":[20,28,30,34,'#'],
+			"N":[39,44,46,48,'#'],
+			"G":[57,62,64,68,'#'],
+			"O":[73,74,81,84,'#']
 		};
 		var num = bingo.checkVertical(card);
 		assert.equal(num, 1);
@@ -74,10 +75,10 @@ describe('Bingo tests', function () {
 
 	it("should check for vertical and fail", function(){
 		card = {
-			"B":[2,6,11,12,-1],
-			"I":[20,28,30,34,-1],
-			"N":[39,44,46,48,-1],
-			"G":[57,62,64,68,-1],
+			"B":[2,6,11,12,'#'],
+			"I":[20,28,30,34,'#'],
+			"N":[39,44,46,48,'#'],
+			"G":[57,62,64,68,'#'],
 			"O":[73,74,81,84,63]
 		};
 		var num = bingo.checkVertical(card);
@@ -87,11 +88,11 @@ describe('Bingo tests', function () {
 
 	it('should check for diagonal correctly', function() {
 		card = {
-			"B":[2,6,11,12,-1],
-			"I":[20,28,30,-1,35],
-			"N":[39,44,-1,48,53],
-			"G":[57,-1,64,68,69],
-			"O":[-1,74,81,84,90]
+			"B":[2,6,11,12,'#'],
+			"I":[20,28,30,'#',35],
+			"N":[39,44,'#',48,53],
+			"G":[57,'#',64,68,69],
+			"O":['#',74,81,84,90]
 		};
 		var num = bingo.checkDiagonal(card);
 		assert.equal(num, 1);
@@ -99,10 +100,10 @@ describe('Bingo tests', function () {
 
 	it('should check for diagonal and fail', function() {
 		card = {
-			"B":[2,6,11,12,-1],
-			"I":[20,28,30,-1,35],
-			"N":[39,44,-1,48,53],
-			"G":[57,-1,64,68,69],
+			"B":[2,6,11,12,'#'],
+			"I":[20,28,30,'#',35],
+			"N":[39,44,'#',48,53],
+			"G":[57,'#',64,68,69],
 			"O":[71,74,81,84,90]
 		};
 		var num = bingo.checkDiagonal(card);
