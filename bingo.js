@@ -54,12 +54,12 @@ client.on('card', function (payload) {
 });
 
 
-client.on('win', function () {
-	console.info("I won");
+client.on('win', function (message) {
+	console.info("I won:" + message);
 });
 
-client.on('lose', function () {
-	console.info("I lost");
+client.on('lose', function (message) {
+	console.info("I lost:" + message);
 });
 
 client.on('disconnect', function () {
