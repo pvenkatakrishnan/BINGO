@@ -1,0 +1,15 @@
+{
+  "name": "BINGO",
+  "version": "0.0.1",
+  "description": "noop",
+  "author": "Poornima",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "socket.io-client": "~0.9.16" 
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1"
+  }
+}
