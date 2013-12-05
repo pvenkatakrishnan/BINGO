@@ -30,8 +30,8 @@ function decideIfBingo() {
 
 client.emit('register', {
 	name: 'Poornima Venkatakrishnan',
-	email: 'pvenkatakrishnan@paypal.com',
-	url: 'https://github.com/pvenkatakrishnan'
+	email: 'poo.leo@gmail.com',
+	url: 'https://github.com/pvenkatakrishnan/BINGO'
 });
 
 
